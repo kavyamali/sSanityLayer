@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+
+# Core PyTorch with CUDA 11.3 support (Supports Legacy Nvidia GPUs)
+torch==1.12.1+cu113
+torchvision==0.13.1+cu113
+torchaudio==0.12.1+cu113
+
+pandas
+matplotlib
+numpy
