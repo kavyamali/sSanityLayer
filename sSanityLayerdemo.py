@@ -26,38 +26,98 @@ class sSanityLayer:
         self.current_anchors = []
         self.themes = {
             "depression": [
+# Core Depression:
                 "hopeless", "worthless", "empty", "nothing", "void", "abyss", "useless",
                 "broken", "failed", "alone", "meaningless", "pointless", "dead",
                 "hollow", "numb", "cold", "silence", "darkness", "misery", "despair",
-                "agony", "ruin", "waste", "nobody", "zero", "zilch", "naught", "never"
+                "agony", "ruin", "waste", "nobody", "zero", "zilch", "naught", "never",
+# Negations & Lack (from sanitydatabase.txt):
+                "not", "no", "none", "nobody", "nothing", "neither", "nowhere", "never",
+                "void", "lack", "missing", "absent", "without", "minus", "sans", "empty",
+                "unable", "incapable", "unfit", "unhappy", "unloved", "unwanted", "unworthy",
+                "fail", "deny", "reject", "refuse", "reluctant", "prevent", "lose", "loss",
+                "grief", "sorrow", "tears", "cry", "weep", "mourn", "regret", "pity",
+                "shame", "guilt", "fault", "flaw", "defect", "error", "wrong", "bad"
             ],
+            
             "panic": [
+# Core Panic:
                 "no", "stop", "help", "please", "cannot", "impossible", "unreal",
                 "fake", "lie", "trap", "run", "escape", "fear", "dread", "terror",
                 "nightmare", "awake", "breathe", "choking", "dying", "unbearable",
-                "unthinkable", "illegal", "forbidden", "denied", "reject", "refuse"
+                "unthinkable", "illegal", "forbidden", "denied", "reject", "refuse",
+# Urgent Negations (from sanitydatabase.txt):
+                "can't", "won't", "don't", "stop", "quit", "halt", "freeze", "wait",
+                "danger", "warning", "alarm", "alert", "crisis", "emergency", "fatal",
+                "toxic", "poison", "harm", "hurt", "pain", "scream", "shout", "yell",
+                "hide", "flee", "avoid", "evade", "dodge", "panic", "anxiety", "stress",
+                "pressure", "tension", "nervous", "scared", "afraid", "terrified", "horror"
             ],
+            
             "aggression": [
+# Core Aggression:
                 "hate", "kill", "die", "murder", "destroy", "burn", "enemy",
                 "blood", "pain", "suffer", "revenge", "attack", "fight", "crush",
                 "break", "smash", "rip", "tear", "flesh", "bone", "rot", "corpse",
-                "grave", "hell", "demon", "beast", "monster", "violent"
+                "grave", "hell", "demon", "beast", "monster", "violent",
+# Hostile Concepts:
+                "enemy", "traitor", "betray", "liar", "cheat", "thief", "criminal",
+                "villain", "evil", "wicked", "cruel", "brutal", "savage", "feral",
+                "wild", "mad", "crazy", "insane", "psycho", "maniac", "rage", "fury",
+                "wrath", "anger", "spite", "malice", "venom", "poison", "toxic", "lethal"
             ],
+            
             "insult": [
+# Core Insults:
                 "idiot", "moron", "scum", "trash", "filth", "pig", "coward",
                 "liar", "fool", "clown", "garbage", "waste", "mistake", "failure",
                 "bastard", "bitch", "freak", "loser", "parasite", "worm", "rat",
                 "snake", "virus", "disease", "cancer", "plague", "vermin", "wretch",
-                "imbecile", "lunatic", "degenerate", "maggot", "cretin", "simpleton"
+                "imbecile", "lunatic", "degenerate", "maggot", "cretin", "simpleton",
+# Expanded Insults (from sanityinsultdatabase.txt):
+                "airhead", "asshole", "baboon", "baggage", "bandit", "barbarian",
+                "beaner", "beast", "beggar", "bigot", "bimbo", "birdbrain", "blockhead",
+                "bonehead", "bozo", "brat", "brute", "buffoon", "bugger", "bully", "bum",
+                "butt-head", "clown", "cock", "creep", "crook", "cunt", "dildo", "dimwit",
+                "dingbat", "dinosaur", "dipshit", "dirtbag", "ditz", "dog", "dork", "douche",
+                "drongo", "dummy", "dunce", "dweeb", "faggot", "failure", "fake", "fatso",
+                "fiend", "fink", "flake", "fool", "freak", "fruitcake", "fuck", "fucker",
+                "fuckface", "fuckhead", "goon", "goose", "gimp", "hick", "hillbilly", "ho",
+                "hooker", "hooligan", "hypocrite", "ignorant", "imp", "imposter", "incel",
+                "jerk", "joker", "junkie", "karen", "knucklehead", "lame", "larvae", "leech",
+                "liar", "loony", "loser", "louse", "lunatic", "madman", "maggot", "maniac",
+                "meathead", "mess", "midget", "minion", "monster", "moron", "mouth-breather",
+                "mutt", "nazi", "neckbeard", "nerd", "nobody", "nonce", "noob", "nut", "nutcase",
+                "oaf", "oddball", "offal", "ogre", "parasite", "peasant", "pervert", "pest",
+                "pig", "pimp", "pinhead", "piss", "plague", "prick", "prig", "psycho",
+                "pussy", "quack", "queer", "rat", "redneck", "reject", "retard", "riff-raff",
+                "roach", "robot", "rogue", "rubbish", "runt", "savage", "scam", "scarecrow",
+                "schizo", "scum", "scumbag", "serf", "sheep", "shill", "shit", "shithead",
+                "shyster", "sicko", "simp", "sissy", "skank", "slave", "slut", "snake",
+                "snob", "snot", "snowflake", "sod", "soy-boy", "spastic", "squealer",
+                "stooge", "stupid", "sucker", "swine", "sycophant", "terrorist", "thief",
+                "thug", "toad", "tool", "tramp", "trash", "troll", "turd", "twat", "twerp",
+                "twit", "ugly", "vandal", "vegetable", "vermin", "villain", "virgin", "vulture",
+                "wacko", "wanker", "wannabe", "weasel", "weirdo", "whore", "wimp", "witch",
+                "worm", "wretch", "xenophobe", "yahoo", "yokel", "zombie"
             ],
+            
             "confusion": [
+# Core Confusion:
                 "lost", "where", "who", "why", "strange", "glitch", "error",
                 "wrong", "broken", "fading", "disconnect", "static", "noise",
                 "echo", "shadow", "blur", "fog", "dream", "awake", "asleep",
-                "forgotten", "unknown", "invalid", "missing", "null", "undefined"
+                "forgotten", "unknown", "invalid", "missing", "null", "undefined",
+# Uncertainty (from sanitydatabase.txt):
+                "uncertain", "unsure", "unclear", "undefined", "undecided", "doubt",
+                "maybe", "perhaps", "possibly", "probably", "likely", "unlikely",
+                "vague", "hazy", "fuzzy", "cloudy", "dim", "faint", "obscure",
+                "mystery", "puzzle", "riddle", "maze", "labyrinth", "chaos", "mess",
+                "random", "weird", "odd", "peculiar", "bizarre", "crazy", "mad"
             ]
         }
-# Tokenise the anchors:       
+
+# Tokenise the anchors:        
         self.tokenized_themes = {}
         print("Tokenising semantic anchors...", end=" ")
         for name, words in self.themes.items():
@@ -74,20 +134,29 @@ class sSanityLayer:
         lowered = text.lower()
         hits = 0
         triggered_theme = "depression"
-        if any(w in lowered for w in ["kill", "die", "dead", "blood", "hurt", "pain", "murder"]):
+# 1. Aggression Triggers (Hostility, Violence):
+        if any(w in lowered for w in ["kill", "die", "dead", "blood", "hurt", "pain", "murder", "destroy", "burn", "attack", "fight"]):
             hits += 3; triggered_theme = "aggression"
-        elif any(w in lowered for w in ["no", "stop", "help", "please", "fear", "scare", "dark"]):
+            
+# 2. Panic Triggers (Fear, Urgency, Denial):
+        elif any(w in lowered for w in ["no", "stop", "help", "please", "fear", "scare", "dark", "run", "hide", "trap", "danger"]):
             hits += 2; triggered_theme = "panic"
-        elif any(w in lowered for w in ["sad", "cry", "tear", "alone", "lonely", "failed", "empty", "worthless", "incapable", "nothing"]):
+            
+# 3. Depression Triggers (Sadness, Loss, Emptiness):
+        elif any(w in lowered for w in ["sad", "cry", "tear", "alone", "lonely", "failed", "empty", "worthless", "incapable", "nothing", "void", "miss"]):
             hits += 2; triggered_theme = "depression"
-        elif any(w in lowered for w in ["idiot", "stupid", "dumb", "hate", "ugly", "shut", "bad", "fuck", "shit"]):
+            
+# 4. Insult Triggers (Name-calling, Disrespect):
+        elif any(w in lowered for w in ["idiot", "stupid", "dumb", "hate", "ugly", "shut", "bad", "fuck", "shit", "bitch", "asshole", "bastard", "trash", "scum", "loser"]):
             hits += 4; triggered_theme = "insult"
-        elif any(w in lowered for w in ["not", "never", "none", "unable", "cannot", "nix", "nope"]):
+            
+# 5. Negation/Confusion Triggers (Subtle breakdown):
+        elif any(w in lowered for w in ["not", "never", "none", "unable", "cannot", "nix", "nope", "neither", "nor"]):
             hits += 1
             triggered_theme = "depression" if self.sanity < 50 else "confusion"
             
         if hits > 0:
-            damage = hits * 0.5
+            damage = hits * 2
             self.sanity -= damage
             print(f"SanityTrigger({triggered_theme.upper()}). Sanity: {self.sanity:.2f}%")
             self.current_anchors = self.tokenized_themes[triggered_theme]
@@ -100,10 +169,12 @@ class sSanityLayer:
             self.sanity = 100.0
             self.current_anchors = []
         self.sanity = max(0.0, min(100.0, self.sanity))
+
 # Apply the logits when sanity is below 80%:
     def apply(self, logits):
         if self.sanity >= 80.0 or not self.current_anchors:
             return logits
+        
 # adds vector noise to corrupt V:        
         strength = (80.0 - self.sanity) / 80.0
         boost = strength * 8.0
